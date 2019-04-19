@@ -35,7 +35,7 @@ public class FileUploadWindowsAutoIT {
 	
 	@Test
 	public void fileUpload() throws Exception {
-		driver.findElement(By.id("identifierId")).sendKeys("<your email>");//your email accound
+		driver.findElement(By.id("identifierId")).sendKeys("<your email>");//your email account
 		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/content/span")).click();
 		driver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys("<your email password>");//your email password
 		try {
