@@ -54,8 +54,8 @@ public class FileUploadWindowsAutoIT {
 		//Thread.sleep(5000);
 		String cvLetter=StoreTextFile.readFileAsString();//cover letter
 		//email body
-		String gmailBodyXpath="/html[1]/body[1]/div[25]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/div[1]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/div[2]/div[1]";
-		driver.findElement(By.xpath(gmailBodyXpath)).sendKeys("<your email body>");
+		WebElement gmailBody=driver.findElement(By.xpath("/html[1]/body[1]/div[25]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/div[1]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/div[2]/div[1]"));
+		gmailBody.sendKeys(<your cv letter's path or body's text>);
 		
 		WebElement fileInput = driver.findElement(By.xpath("//div[@class='a1 aaA aMZ']"));
 		fileInput.click();//browse a file to upload
@@ -70,7 +70,10 @@ public class FileUploadWindowsAutoIT {
 		
 		Thread.sleep(2000); 
 		
-		driver.findElement(By.xpath("//div[@id=':qo']")).click();//send your email
+		gmailBody.sendKeys(Keys.TAB);//move to the 'Send' button
+		
+		Thread.sleep(1000);
+		driver.switchTo().activeElement().click();//current element is now the 'Send' button; clicking it for sending your email
 	}
 }
 
