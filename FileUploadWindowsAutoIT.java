@@ -70,7 +70,7 @@ public class FileUploadWindowsAutoIT {
 		
 		Thread.sleep(2000); 
 		
-		driver.findElement(By.xpath("//div[@class='T-I J-J5-Ji aoO T-I-atl L3 T-I-KL']")).click();//send your email
+		driver.findElement(By.xpath("//div[@id=':qo']")).click();//send your email
 	}
 }
 
