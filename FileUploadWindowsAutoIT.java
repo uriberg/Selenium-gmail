@@ -35,14 +35,14 @@ public class FileUploadWindowsAutoIT {
 	
 	@Test
 	public void fileUpload() throws Exception {
-		driver.findElement(By.id("identifierId")).sendKeys("<your email>");//your email account
-		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/content/span")).click();
+		driver.findElement(By.id("identifierId")).sendKeys("<your email>");//your email accound
+		driver.findElement(By.id("identifierNext")).click();
 		driver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys("<your email password>");//your email password
 		try {
-		driver.findElement(By.xpath("//*[@id=\"passwordNext\"]/content/span")).click();
+		driver.findElement(By.id("passwordNext")).click();
 		}
 		catch(org.openqa.selenium.WebDriverException ex){
-			driver.findElement(By.xpath("//*[@id=\"passwordNext\"]/content/span")).click();
+			driver.findElement(By.xpath("//div[@id='passwordNext']//span[@class='CwaK9']")).click();
 		}
 		
 		driver.findElement(By.xpath("//div[@class='T-I J-J5-Ji T-I-KE L3 T-I-KL']")).click();//compose email
@@ -54,7 +54,7 @@ public class FileUploadWindowsAutoIT {
 		//Thread.sleep(5000);
 		String cvLetter=StoreTextFile.readFileAsString();//cover letter
 		//email body
-		WebElement gmailBody=driver.findElement(By.xpath("/html[1]/body[1]/div[25]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/div[1]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/div[2]/div[1]"));
+		WebElement gmailBody=driver.findElement(By.xpath("//div[@id=':ro']"));
 		gmailBody.sendKeys(<your cv letter's path or body's text>);
 		
 		WebElement fileInput = driver.findElement(By.xpath("//div[@class='a1 aaA aMZ']"));
